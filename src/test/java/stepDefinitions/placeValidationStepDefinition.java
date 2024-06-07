@@ -79,5 +79,6 @@ public class placeValidationStepDefinition extends utils {
     @Given("DeletePlace Payload")
     public void deleteplacePayload() throws IOException {
         res = given().spec(requestSpecification()).body(ts.deletePlacePayload(place_id));
+        System.out.println(res);
     }
 }
