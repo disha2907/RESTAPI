@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="classes" thread-count="1" configfailurepolicy="continue">
+<!--    <listeners>-->
+<!--        <listener-->
+<!--                class-name="com.ttn.WebAutomation.listeners.MyProjectListener" />-->
+<!--        <listener-->
+<!--                class-name="com.epam.reportportal.testng.ReportPortalTestNGListener" />-->
+<!--    </listeners>-->
+    <parameter name="browser" value="chrome" />
+
+    <!-- 	<parameter name="Environment" value="${Environment}" />-->
+    <!--	<parameter name="testingType" value="${TestingType}" />-->
+    <!--	<parameter name="EmailSend" value="${EmailSend}"></parameter>-->
+
+    <parameter name="Environment" value="preprod" />
+    <parameter name="testingType" value="sanity" />
+    <parameter name="EmailSend" value="Yes" />
+
+    <!-- <test name="Test safari"> <parameter name="packageName" value="Running
+        on safari" /> <parameter name="gridBrowser" value="safari"/> <classes> <class
+        name="com.ttn.WebAutomation.tests.msil.ProductDetailsTest" /> </classes>
+        </test> -->
+
+    <test name="Test Chrome">
+        <parameter name="packageName" value="API Cucumber Testing" />
+        <parameter name="gridBrowser" value="chrome" />
+
+        <groups>
+            <run>
+                <!--				<include name="${TestingType}" />-->
+                <include name="sanity" />
+            </run>
+        </groups>
+        <classes>
+            <class name="cucumber.Options.TestRunner"></class>
+        </classes>
+
+    </test>
+</suite> <!-- Suite -->
